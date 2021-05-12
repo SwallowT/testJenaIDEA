@@ -23,13 +23,13 @@ import java.io.InputStream;
 import org.apache.jena.atlas.lib.SinkPrint;
 import org.apache.jena.graph.Triple;
 import org.apache.jena.riot.Lang;
-import org.apache.jena.riot.RiotReader;
+//import org.apache.jena.riot.RiotReader;  //deprecated
 
 public class ExampleRIOT_01 {
 
     public static void main(String[] args) {
         InputStream in = Utils.getResourceAsStream("data/data.ttl");
-        RiotReader.parseTriples(in, Lang.TURTLE, null, new SinkPrint<Triple>(System.out));
+        //RiotReader.parseTriples(in, Lang.TURTLE, null, new SinkPrint<Triple>(System.out));
     }
 
 }

@@ -27,15 +27,19 @@ import java.io.InputStreamReader;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.util.FileManager;
+import org.apache.jena.riot.system.stream.StreamManager;
 
 public class ExampleAPI_04 {
 
     public static void main(String[] args) throws IOException {
-        FileManager.get().addLocatorClassLoader(ExampleAPI_04.class.getClassLoader());
-        InputStream in = FileManager.get().open("data/data2.ttl");
+        /*FileManager.get().addLocatorClassLoader(ExampleAPI_04.class.getClassLoader());
+        InputStream in = FileManager.get().open("data/data2.ttl");*/
+        InputStream in = StreamManager.get().open("data/data2.ttl").getInputStream();
         BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+
         String line = null;
         Model all = ModelFactory.createDefaultModel();
+
         while ( ( line = reader.readLine() ) != null ) {
         	ByteArrayInputStream bais = new ByteArrayInputStream(line.getBytes());
         	Model model = ModelFactory.createDefaultModel();

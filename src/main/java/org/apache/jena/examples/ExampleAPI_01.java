@@ -18,26 +18,28 @@
 
 package org.apache.jena.examples;
 
-import org.apache.jena.rdf.model.Model;
-import org.apache.jena.rdf.model.RDFNode;
-import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.rdf.model.Statement;
-import org.apache.jena.rdf.model.StmtIterator;
-import org.apache.jena.util.FileManager;
+import org.apache.jena.rdf.model.*;
+// import org.apache.jena.util.FileManager;
+import org.apache.jena.riot.RDFDataMgr;
+
+import java.io.InputStream;
 
 public class ExampleAPI_01 {
 
     public static void main(String[] args) {
-        FileManager.get().addLocatorClassLoader(ExampleAPI_01.class.getClassLoader());
-        Model model = FileManager.get().loadModel("data/data.ttl", null, "TURTLE");
+        /*FileManager.get().addLocatorClassLoader(ExampleAPI_01.class.getClassLoader());
+        Model model = FileManager.get().loadModel("data/data.ttl", null, "TURTLE");*/ // deprecated
 
-        StmtIterator iter = model.listStatements();
+        Model model = RDFDataMgr.loadModel("data/data.ttl");
+
+
+        StmtIterator iter = model.listStatements(); //An iterator which returns RDF Statements.
         try {
             while ( iter.hasNext() ) {
                 Statement stmt = iter.next();
                 
                 Resource s = stmt.getSubject();
-                Resource p = stmt.getPredicate();
+                Property p = stmt.getPredicate(); // 原版：Resource p = stmt.getPredicate();
                 RDFNode o = stmt.getObject();
                 
                 if ( s.isURIResource() ) {

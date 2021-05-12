@@ -46,7 +46,7 @@ public class TestTDBUnicode {
     private static final String path = "target/tdb";
     
     @Test public void test_01() {
-        DatasetGraph dsg2 = DatasetGraphFactory.createMem();
+        DatasetGraph dsg2 = DatasetGraphFactory.createGeneral();
         RDFDataMgr.read(dsg2, new StringReader(str_triple), null, Lang.NTRIPLES);
         RDFDataMgr.read(dsg2, new StringReader(str_triple), null, Lang.TURTLE);
     }
@@ -58,7 +58,7 @@ public class TestTDBUnicode {
         dataset.begin ( ReadWrite.WRITE );
         try {
             DatasetGraph dsg = dataset.asDatasetGraph();
-            DatasetGraph dsg2 = DatasetGraphFactory.createMem();
+            DatasetGraph dsg2 = DatasetGraphFactory.createGeneral();
             RDFDataMgr.read(dsg2, new StringReader(str_triple), null, Lang.TURTLE);
             Iterator<Quad> quads = dsg2.find();
             while ( quads.hasNext() ) {
@@ -80,7 +80,7 @@ public class TestTDBUnicode {
         dataset.begin ( ReadWrite.WRITE );
         try {
             DatasetGraph dsg = dataset.asDatasetGraph();
-            DatasetGraph dsg2 = DatasetGraphFactory.createMem(); 
+            DatasetGraph dsg2 = DatasetGraphFactory.createGeneral();
             RDFDataMgr.read(dsg2, new StringReader(str_triple), null, Lang.TURTLE);
             Iterator<Quad> quads = dsg2.find();
             while ( quads.hasNext() ) {

@@ -32,7 +32,7 @@ public class ExampleIO_01 {
         RIOT.init() ;
 
         Model model = ModelFactory.createDefaultModel(); // creates an in-memory Jena Model
-        model.read(in, null, "TURTLE"); // parses an InputStream assuming RDF in Turtle format
+        model.read(in, null, "TURTLE"); // parses an InputStream assuming RDF in Turtle format //in, base, lang
 
         // Write the Jena Model in Turtle, RDF/XML and N-Triples format
         System.out.println("\n---- Turtle ----");

@@ -27,13 +27,13 @@ import org.apache.jena.atlas.lib.Sink;
 import org.apache.jena.atlas.lib.SinkNull;
 import org.apache.jena.atlas.lib.SinkWrapper;
 import org.apache.jena.riot.Lang;
-import org.apache.jena.riot.RiotReader;
+//import org.apache.jena.riot.RiotReader;
 
 import org.apache.jena.graph.Node;
 import org.apache.jena.graph.NodeFactory;
 import org.apache.jena.sparql.core.Quad;
 import org.apache.jena.vocabulary.RDF;
-
+/*
 public class ExampleRIOT_02 {
 
     public static void main(String[] args) {
@@ -171,3 +171,4 @@ class SinkQuadStats extends SinkWrapper<Quad> {
     }
 
 }
+*/
